@@ -56,7 +56,7 @@ function App() {
           <span>&#129315;</span>
           <p>
             <div className="teksti">
-              <h1 className="teksti" style={{ color: "#00bcd4" }}>
+              <h1 className="teksti" style={{color: "#00bcd4" }}>
                 {setup}
               </h1>
               <h1 className="teksti">{delivery}</h1>
@@ -81,5 +81,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
