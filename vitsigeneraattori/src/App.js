@@ -55,12 +55,12 @@ function App() {
         <div className="wrapper">
           <span>&#129315;</span>
           <p>
-            <div className="teksti">
-              <h1 className="teksti" style={{ color: '#00bcd4' }}>
+            <div className="text">
+              <h1 className="text" style={{ color: '#00bcd4' }}>
                 {setup}
               </h1>
-              <h1 className="teksti">{delivery}</h1>
-              <h1 className="teksti">{joke}</h1>
+              <h1 className="text">{delivery}</h1>
+              <h1 className="text">{joke}</h1>
             </div>
           </p>
           <button
