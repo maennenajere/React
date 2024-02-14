@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
-  const [setup, setSetup] = useState("");
-  const [delivery, setDelivery] = useState("");
-  const [joke, setJoke] = useState("");
+  const [setup, setSetup] = useState('');
+  const [delivery, setDelivery] = useState('');
+  const [joke, setJoke] = useState('');
 
   useEffect(() => {
     const getJokeFirst = async () => {
       try {
         const response = await fetch(
-          "https://v2.jokeapi.dev/joke/Any?safe-mode"
+          'https://v2.jokeapi.dev/joke/Any?safe-mode'
         );
         const data = await response.json();
         console.log(data);
-        if (data.type === "twopart") {
+        if (data.type === 'twopart') {
           setSetup(data.setup);
           setDelivery(data.delivery);
-          setJoke("");
-        } else if (data.type === "single") {
+          setJoke('');
+        } else if (data.type === 'single') {
           setJoke(data.joke);
-          setSetup("");
-          setDelivery("");
+          setSetup('');
+          setDelivery('');
         }
       } catch (error) {
         console.log(error);
@@ -32,17 +32,17 @@ function App() {
 
   const getJoke = async () => {
     try {
-      const response = await fetch("https://v2.jokeapi.dev/joke/Any?safe-mode");
+      const response = await fetch('https://v2.jokeapi.dev/joke/Any?safe-mode');
       const data = await response.json();
       console.log(data);
-      if (data.type === "twopart") {
+      if (data.type === 'twopart') {
         setSetup(data.setup);
         setDelivery(data.delivery);
-        setJoke("");
-      } else if (data.type === "single") {
+        setJoke('');
+      } else if (data.type === 'single') {
         setJoke(data.joke);
-        setSetup("");
-        setDelivery("");
+        setSetup('');
+        setDelivery('');
       }
     } catch (error) {
       console.log(error);
@@ -56,7 +56,7 @@ function App() {
           <span>&#129315;</span>
           <p>
             <div className="teksti">
-              <h1 className="teksti" style={{color: "#00bcd4" }}>
+              <h1 className="teksti" style={{ color: '#00bcd4' }}>
                 {setup}
               </h1>
               <h1 className="teksti">{delivery}</h1>
@@ -65,13 +65,13 @@ function App() {
           </p>
           <button
             style={{
-              backgroundColor: "#fab22e",
-              color: "black",
-              border: "none",
-              padding: "10px",
-              borderRadius: "5px",
-              fontSize: "20px",
-              cursor: "pointer",
+              backgroundColor: '#fab22e',
+              color: 'black',
+              border: 'none',
+              padding: '10px',
+              borderRadius: '5px',
+              fontSize: '20px',
+              cursor: 'pointer',
             }}
             onClick={getJoke}>
             Get Joke
