@@ -1,6 +1,5 @@
 # Dependencies
 /node_modules/
-server/node_modules/
 .pnp
 .pnp.js
 
@@ -16,7 +15,14 @@ server/node_modules/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Server
 server/.env
+server/.env.local
+server/.env.development.local
+server/.env.test.local
+server/.env.production.local
+server/node_modules/
 
 # Error logs
 npm-debug.log*
