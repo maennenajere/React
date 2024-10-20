@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from "@vercel/analytics/react"
 import './App.css';
 
 /*
@@ -94,6 +95,8 @@ function App() {
 					</button>
 				</div>
 			</header>
+			{/* Analytics component for tracking */}
+			<Analytics />
 		</div>
 	);
 }
