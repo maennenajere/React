@@ -73,7 +73,7 @@ function App() {
 					<span>&#129315;</span>
 					<p>
 						<div className="text">
-							<h1 className="text" style={{ color: '#00bcd4' }}>
+							<h1 className="text" style={{color: '#00bcd4'}}>
 								{setup}
 							</h1>
 							<h1 className="text">{delivery}</h1>
@@ -95,9 +95,16 @@ function App() {
 					</button>
 				</div>
 			</header>
+
 			{/* Analytics component for tracking */}
-			<Analytics />
+			<Analytics/>
+
+			<footer className="App-footer">
+			</footer>
+
+
 		</div>
 	);
 }
+
 export default App;
