@@ -13,10 +13,18 @@ const openDb = () => {
         database: enviroment === 'development' ? process.env.PGDATABASE : process.env.TEST_DB_NAME,
         password: process.env.PGPASSWORD,
         port: process.env.PGPORT
-    })
+    });
+
+    pool.connect((err) => {
+        if (err) {
+            console.error('Error connecting to the database', err.stack);
+        } else {
+            console.log('Successfully connected to the database');
+        }
+    });
+
     return pool;
-}
+};
 
 const pool = openDb();
-
 export { pool };
