@@ -73,7 +73,7 @@ describe('POST register', () => {
         const response = await fetch(base_url + '/user/register', {
             method: 'POST',
             headers: {
-                'Content-Type'; 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({'email': email, 'password': password})
         });
