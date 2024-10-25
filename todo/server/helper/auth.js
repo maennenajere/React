@@ -1,3 +1,4 @@
+import jwt from "jsonwebtoken";
 const authorizationRequired = "Authorization required";
 const invalidCredentials = "Invalid credentials";
 
