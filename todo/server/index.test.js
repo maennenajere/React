@@ -1,5 +1,5 @@
 import { initializeTestDb, insertTestUser, getToken } from "./helper/test.js";
-const { expect } = from 'chai';
+import { expect } from 'chai';
 
 const base_url = 'http://localhost:3001/';
 
@@ -43,7 +43,8 @@ describe('POST task', () => {
         const response = await fetch(base_url + '/create', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': token
             },
             body: JSON.stringify({ 'description': null })
         });
@@ -76,7 +77,11 @@ describe('DELETE task', () => {
 
     it('should not delete a task with SQL injection', async () => {
         const response = await fetch(base_url + 'delete/id=0 or id > 0', {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            }
         });
         const data = await response.json();
         expect(response.status).to.equal(500);
