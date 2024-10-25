@@ -2,13 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import { pool } from './db.js';
 import { sign } from 'jsonwebtoken';
-const { hash } = require('bcrypt');
+import { hash } from 'bcrypt';
 
 const __dirname = import.meta.dirname;
 
 const initializeTestDb = () => {
     const sql = fs.readFileSync(path.resolve(__dirname, "../todo.sql"), "utf8");
-    pool.query(sql)
+    pool.query(sql);
 };
 
 const insertTestUser = (email, password) => {
@@ -19,7 +19,7 @@ const insertTestUser = (email, password) => {
 };
 
 const getToken = (email) => {
-    return sign({user: email}, process.env.JWT_SECRET_KEY);
-});
+    return sign({ user: email }, process.env.JWT_SECRET_KEY);
+};
 
 export { initializeTestDb, insertTestUser, getToken };
