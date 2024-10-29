@@ -1,11 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 import todoRouter from './routes/todoRouter.js';
 import userRouter from './routes/userRouter.js';
 
 dotenv.config();
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
+const jwtSecret = process.env.JWT_SECRET;
+
+if (!jwtSecret) {
+    throw new Error('JWT_SECRET must be defined');
+}
 
 const app = express();
 app.use(cors());
