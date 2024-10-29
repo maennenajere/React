@@ -16,11 +16,11 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="ee04fb69-e1a3-4c48-887f-a3eb9f13dbc5">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+    <connection id="21dd05da-3f04-467b-9dad-8004bf18cdb9">
+      <console name="TODO" type="STANDARD" schema="" session="Main" />
     </connection>
-    <connection id="666af582-909c-4f0f-96e8-2b99b5f9b9cd">
-      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
+    <connection id="45f340df-720b-41cf-ac18-e337511c5565">
+      <console name="TEST_TODO" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -30,11 +30,23 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="ee04fb69-e1a3-4c48-887f-a3eb9f13dbc5" />
-    <connection id="666af582-909c-4f0f-96e8-2b99b5f9b9cd" />
+    <connection id="21dd05da-3f04-467b-9dad-8004bf18cdb9" />
+    <connection id="45f340df-720b-41cf-ac18-e337511c5565" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="21dd05da-3f04-467b-9dad-8004bf18cdb9" dataset="public.account" active-filter-id="" />
+    <filter-actions connection-id="45f340df-720b-41cf-ac18-e337511c5565" dataset="public.task" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.MethodExecutionManager">
+    <method-browser />
+    <execution-history>
+      <group-entries value="true" />
+      <execution-inputs />
+    </execution-history>
+    <argument-values-cache />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -42,9 +54,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="ee04fb69-e1a3-4c48-887f-a3eb9f13dbc5" active="true" signed="true">
+      <connection id="21dd05da-3f04-467b-9dad-8004bf18cdb9" active="true" signed="true">
         <database>
-          <name value="todo" />
+          <name value="TODO" />
           <description value="todo" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
@@ -54,7 +66,7 @@
           <driver value="" />
           <url-type value="DATABASE" />
           <host value="localhost" />
-          <port value="5432" />
+          <port value="5433" />
           <database value="todo" />
           <tns-folder value="" />
           <tns-profile value="" />
@@ -136,25 +148,25 @@
           </object-type-filter>
         </object-filters>
       </connection>
-      <connection id="666af582-909c-4f0f-96e8-2b99b5f9b9cd" active="true" signed="true">
+      <connection id="45f340df-720b-41cf-ac18-e337511c5565" active="true" signed="true">
         <database>
-          <name value="Connection 1" />
-          <description value="" />
+          <name value="TEST_TODO" />
+          <description value="test_todo" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
-          <database-version value="9999.0" />
+          <database-version value="17.0" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
           <host value="localhost" />
-          <port value="5432" />
-          <database value="postgres" />
+          <port value="5433" />
+          <database value="test_todo" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
-          <user value="" />
-          <deprecated-pwd value="" />
+          <user value="postgres" />
+          <deprecated-pwd value="bXVzdGlz" />
         </database>
         <properties>
           <auto-commit value="false" />
