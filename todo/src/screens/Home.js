@@ -52,10 +52,10 @@ function Home() {
 
 	return (
 		<div id="container">
+			<button className="logout-button" onClick={logOut}>Log Out</button>
 			<h3>Todos 📝</h3>
-			<button onClick={logOut}>Log Out</button>
-			<TaskForm task={task} setTask={setTask} addTask={addTask} />
-			<TaskList tasks={tasks} deleteTask={deleteTask} />
+			<TaskForm task={task} setTask={setTask} addTask={addTask}/>
+			<TaskList tasks={tasks} deleteTask={deleteTask}/>
 		</div>
 	);
 }
