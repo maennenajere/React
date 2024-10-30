@@ -1,0 +1,13 @@
+#container {
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+form label {
+    display: inline-block;
+    width: 10%;
+}
+
+form .field {
+    margin-top: 1em;
+}
