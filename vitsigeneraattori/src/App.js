@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import './App.css';
 
 /*
@@ -17,69 +18,54 @@ import './App.css';
  * Functions:
  * - getJokeFirst - fetches initial joke on mount
  * - getJoke - fetches a new joke on button click
+
  */
+
 function App() {
-	const [setup, setSetup] = useState('');
-	const [delivery, setDelivery] = useState('');
-	const [joke, setJoke] = useState('');
+	const [jokeData, setJokeData] = useState({
+		setup: '',
+		delivery: '',
+		joke: ''
+	});
 
-	useEffect(() => {
-		const getJokeFirst = async () => {
-			try {
-				const response = await fetch(
-					'https://v2.jokeapi.dev/joke/Any?safe-mode'
-				);
-				const data = await response.json();
-				console.log(data);
-				if (data.type === 'twopart') {
-					setSetup(data.setup);
-					setDelivery(data.delivery);
-					setJoke('');
-				} else if (data.type === 'single') {
-					setJoke(data.joke);
-					setSetup('');
-					setDelivery('');
-				}
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		getJokeFirst();
-	}, []);
-
-	const getJoke = async () => {
+	const fetchJoke = async () => {
 		try {
 			const response = await fetch('https://v2.jokeapi.dev/joke/Any?safe-mode');
 			const data = await response.json();
-			console.log(data);
-			if (data.type === 'twopart') {
-				setSetup(data.setup);
-				setDelivery(data.delivery);
-				setJoke('');
-			} else if (data.type === 'single') {
-				setJoke(data.joke);
-				setSetup('');
-				setDelivery('');
-			}
+
+			setJokeData({
+				setup: data.type === 'twopart' ? data.setup : '',
+				delivery: data.type === 'twopart' ? data.delivery : '',
+				joke: data.type === 'single' ? data.joke : ''
+			});
 		} catch (error) {
-			console.log(error);
+			console.error('Error fetching joke:', error);
 		}
 	};
+
+	// Fetch initial joke on component mount
+	useEffect(() => {
+		fetchJoke();
+	}, []);
 
 	return (
 		<div className="App">
 			<header className="App-header">
 				<div className="wrapper">
 					<span>&#129315;</span>
-					<p>
-						<div className="text">
+					<div className="text">
+						{jokeData.setup && (
 							<h1 className="text" style={{color: '#00bcd4'}}>
-								{setup}
+								{jokeData.setup}
 							</h1>
-							<h1 className="text">{delivery}</h1>
-							<h1 className="text">{joke}</h1>
-						</div>
-					</p>
+						)}
+						{jokeData.delivery && (
+							<h1 className="text">{jokeData.delivery}</h1>
+						)}
+						{jokeData.joke && (
+							<h1 className="text">{jokeData.joke}</h1>
+						)}
+					</div>
 					<button
 						style={{
 							backgroundColor: '#fab22e',
@@ -90,19 +76,17 @@ function App() {
 							fontSize: '20px',
 							cursor: 'pointer',
 						}}
-						onClick={getJoke}>
+						onClick={fetchJoke}
+					>
 						Get Joke
 					</button>
 				</div>
 			</header>
 
-			{/* Analytics component for tracking */}
-			<Analytics/>
+			<Analytics />
+			<SpeedInsights />
 
-			<footer className="App-footer">
-			</footer>
-
-
+			<footer className="App-footer" />
 		</div>
 	);
 }
